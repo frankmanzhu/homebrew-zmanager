@@ -1,7 +1,7 @@
 class Zmanager < Formula
   desc "Fast, safe archive utility for ZIP, 7z, TAR.ZST, and broad extraction"
   homepage "https://github.com/frankmanzhu/zmanager"
-  version "1.0.0"
+  version "1.0.1"
   license all_of: ["Apache-2.0", :cannot_represent]
 
   depends_on "libb2"
@@ -15,21 +15,29 @@ class Zmanager < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.0/zm-aarch64-apple-darwin.tar.gz"
-      sha256 "25487039f6a77cfb84638d73d7fad331b3cbe916ff883aa7bbc1e96084cf3807"
+      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474421",
+          headers:  ["Accept: application/octet-stream"],
+          verified: "github.com/frankmanzhu/zmanager/"
+      sha256 "fd373115a08b6fd6c5b6f92b5de5a791a42154647af660d1094f959e7369b757"
     else
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.0/zm-x86_64-apple-darwin.tar.gz"
-      sha256 "f4495e2ea754090ce87ad57c290bd43ea2c98b7ed8c297c02747580544449a14"
+      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474416",
+          headers:  ["Accept: application/octet-stream"],
+          verified: "github.com/frankmanzhu/zmanager/"
+      sha256 "e31cf89f311959fe41f4e5c257738c3767623831fb1e0035dd7be16a45e700b9"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.0/zm-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "97f41cb96c9df117b2206fbe68447b8b42308e6bd145127220ea5ac3c83052c6"
+      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474417",
+          headers:  ["Accept: application/octet-stream"],
+          verified: "github.com/frankmanzhu/zmanager/"
+      sha256 "b33dfde6c75c352b88fb578a1ba1beda15a1fbe8875f08170de67c0a80ab3f8e"
     else
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.0/zm-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "0705e0f22eeec80ce0acbcafa1c7509104362f476f67209169c91cdbb779a786"
+      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474415",
+          headers:  ["Accept: application/octet-stream"],
+          verified: "github.com/frankmanzhu/zmanager/"
+      sha256 "dd1fb3d24ed2a33ce6ca34e63d0445b8e68ce847106dbf92d4e429011bdda7e0"
     end
 
     depends_on "acl"
@@ -46,6 +54,20 @@ class Zmanager < Formula
     zsh_completion.install "completions/_zm" => "_zm"
     fish_completion.install "completions/zm.fish"
     doc.install "README.md", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md"
+  end
+
+  def caveats
+    <<~EOS
+      Shell completions are installed for bash, zsh, and fish.
+      Bash users can enable completion without extra packages by adding:
+        source #{HOMEBREW_PREFIX}/etc/bash_completion.d/zm
+
+      Or generate completions manually:
+        source <(zm completions bash)
+
+      PowerShell users can generate a completer manually:
+        zm completions powershell > zm.ps1
+    EOS
   end
 
   test do
