@@ -1,50 +1,35 @@
 class Zmanager < Formula
   desc "Fast, safe archive utility for ZIP, 7z, TAR.ZST, and broad extraction"
   homepage "https://github.com/frankmanzhu/zmanager"
-  version "1.0.1"
   license all_of: ["Apache-2.0", :cannot_represent]
-
-  depends_on "libb2"
-  depends_on "lz4"
-  depends_on "xz"
-  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "libb2"
+    depends_on "lz4"
+    depends_on "xz"
+    depends_on "zstd"
+
     if Hardware::CPU.arm?
-      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474421",
-          headers:  ["Accept: application/octet-stream"],
-          verified: "github.com/frankmanzhu/zmanager/"
-      sha256 "fd373115a08b6fd6c5b6f92b5de5a791a42154647af660d1094f959e7369b757"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-aarch64-apple-darwin.tar.gz"
+      sha256 "6396601e8158f9f8d5ecdc238c3d2cac3db3bd997e6724e88e754878d4107423"
     else
-      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474416",
-          headers:  ["Accept: application/octet-stream"],
-          verified: "github.com/frankmanzhu/zmanager/"
-      sha256 "e31cf89f311959fe41f4e5c257738c3767623831fb1e0035dd7be16a45e700b9"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-x86_64-apple-darwin.tar.gz"
+      sha256 "b91c6ce30aa9f646ff92d399d33a7ff1fce01f3feda249572a26160f7db50f0b"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474417",
-          headers:  ["Accept: application/octet-stream"],
-          verified: "github.com/frankmanzhu/zmanager/"
-      sha256 "b33dfde6c75c352b88fb578a1ba1beda15a1fbe8875f08170de67c0a80ab3f8e"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "76ae6763138aca03402a7320b6834dd7f23dce08a7f51dc4b814cc987000aa57"
     else
-      url "https://api.github.com/repos/frankmanzhu/zmanager/releases/assets/423474415",
-          headers:  ["Accept: application/octet-stream"],
-          verified: "github.com/frankmanzhu/zmanager/"
-      sha256 "dd1fb3d24ed2a33ce6ca34e63d0445b8e68ce847106dbf92d4e429011bdda7e0"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "2bd390c3c27d1a29dae0a074b7785a23211deac7cfd3cfe831c44d4e11fe8467"
     end
-
-    depends_on "acl"
-    depends_on "bzip2"
-    depends_on "libxml2"
-    depends_on "openssl@3"
-    depends_on "zlib"
   end
 
   def install
