@@ -1,5 +1,5 @@
 class Zmanager < Formula
-  desc "Fast, safe archive utility for ZIP, 7z, TAR.ZST, and broad extraction"
+  desc "Universal file archiver for fast compression and safe extraction"
   homepage "https://github.com/frankmanzhu/zmanager"
   license all_of: ["Apache-2.0", :cannot_represent]
 
@@ -14,21 +14,21 @@ class Zmanager < Formula
     depends_on "zstd"
 
     if Hardware::CPU.arm?
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-aarch64-apple-darwin.tar.gz"
-      sha256 "6396601e8158f9f8d5ecdc238c3d2cac3db3bd997e6724e88e754878d4107423"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-aarch64-apple-darwin.tar.gz"
+      sha256 "24439fb951b08a21fa6987a2cd475cfc0b6362daf369ba80cc236a5fec9e2281"
     else
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-x86_64-apple-darwin.tar.gz"
-      sha256 "b91c6ce30aa9f646ff92d399d33a7ff1fce01f3feda249572a26160f7db50f0b"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-x86_64-apple-darwin.tar.gz"
+      sha256 "7dc9cdd6ca3525154270ec099f0516c68e94d7efd94081626caf33f197cd4140"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "76ae6763138aca03402a7320b6834dd7f23dce08a7f51dc4b814cc987000aa57"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "9a1ecd1999e74d8f6833ec91a84149660af1d4f79573d4f937a08f19416da557"
     else
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.3/zm-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "2bd390c3c27d1a29dae0a074b7785a23211deac7cfd3cfe831c44d4e11fe8467"
+      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "0e96bbdeebd9f967fdbb80c217f308cf21de3ad222bf9a648497e4005ffa7283"
     end
   end
 
