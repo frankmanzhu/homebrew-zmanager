@@ -1,6 +1,6 @@
 class Zmanager < Formula
   desc "Universal file archiver for fast compression and safe extraction"
-  homepage "https://github.com/frankmanzhu/zmanager"
+  homepage "https://github.com/tzap-org/zmanager"
   license all_of: ["Apache-2.0", :cannot_represent]
 
   uses_from_macos "bzip2"
@@ -14,20 +14,20 @@ class Zmanager < Formula
     depends_on "zstd"
 
     if Hardware::CPU.arm?
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-aarch64-apple-darwin.tar.gz"
+      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.4/zm-aarch64-apple-darwin.tar.gz"
       sha256 "24439fb951b08a21fa6987a2cd475cfc0b6362daf369ba80cc236a5fec9e2281"
     else
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-x86_64-apple-darwin.tar.gz"
+      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.4/zm-x86_64-apple-darwin.tar.gz"
       sha256 "7dc9cdd6ca3525154270ec099f0516c68e94d7efd94081626caf33f197cd4140"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-aarch64-unknown-linux-musl.tar.gz"
+      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.4/zm-aarch64-unknown-linux-musl.tar.gz"
       sha256 "9a1ecd1999e74d8f6833ec91a84149660af1d4f79573d4f937a08f19416da557"
     else
-      url "https://github.com/frankmanzhu/zmanager/releases/download/v1.0.4/zm-x86_64-unknown-linux-musl.tar.gz"
+      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.4/zm-x86_64-unknown-linux-musl.tar.gz"
       sha256 "0e96bbdeebd9f967fdbb80c217f308cf21de3ad222bf9a648497e4005ffa7283"
     end
   end
