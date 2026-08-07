@@ -8,27 +8,22 @@ class Zmanager < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "libb2"
-    depends_on "lz4"
-    depends_on "xz"
-    depends_on "zstd"
-
     if Hardware::CPU.arm?
-      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.6/zm-aarch64-apple-darwin.tar.gz"
-      sha256 "61ad90e7491211256f8e75671170ab960639722d840311da40cc2682c8c2065d"
+      url "https://github.com/tzap-org/zmanager/releases/download/v2.0.0/zm-aarch64-apple-darwin.tar.gz"
+      sha256 "7d0b8c62dff69dcf689a27957a1de9e645f0fe7852744648b30674c3e3d42e72"
     else
-      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.6/zm-x86_64-apple-darwin.tar.gz"
-      sha256 "5d1df87e3828eb2825ca4877c3b321235977d1011ae9bc93c92538f2c5d0ba15"
+      url "https://github.com/tzap-org/zmanager/releases/download/v2.0.0/zm-x86_64-apple-darwin.tar.gz"
+      sha256 "37dfeab3ac77ad924c85370ac3189e990e6376aa848da273751ae53ec11f2490"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.6/zm-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "fd9a3bc649aca6753ea8d3ca9deba2e99bc3d517c9fa3fd94b0a3851f14f55bb"
+      url "https://github.com/tzap-org/zmanager/releases/download/v2.0.0/zm-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "8bd5d8be1b9259a77132218e34545bfe455ce312762351e6dc4afa5c380b7f8c"
     else
-      url "https://github.com/tzap-org/zmanager/releases/download/v1.0.6/zm-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "5ebdd0c550f1aaa6b40b504e7b204a8fc4ed7763c511eb102078d9f6577b76aa"
+      url "https://github.com/tzap-org/zmanager/releases/download/v2.0.0/zm-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "16abfff89b8ae43ad803f94e6d650fc29cf1c9eb250f25d1c4830991db841627"
     end
   end
 
