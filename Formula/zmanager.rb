@@ -3,9 +3,6 @@ class Zmanager < Formula
   homepage "https://github.com/tzap-org/zmanager"
   license all_of: ["Apache-2.0", :cannot_represent]
 
-  uses_from_macos "bzip2"
-  uses_from_macos "libxml2"
-  uses_from_macos "zlib"
 
   on_macos do
     if Hardware::CPU.arm?
